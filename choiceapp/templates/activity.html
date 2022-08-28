@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/a_encrypt.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+        .head{
+        background-color:#5DADE2;
+        color:#2980B9;
+        font-size:15px;
+        }
+        .data{
+        background-color:#D6EAF8;
+        font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+
+{% block content %}
+<br>
+<h1 align="center" style="color:#1F618D;font-size:35px;">User account</h1>
+<br>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr align="center">
+  <th class="head">Question</th>
+  <th class="head">Choice1</th>
+  <th class="head">Choice2</th>
+  <th class="head">Choice3</th>
+  <th class="head">Choice4</th>
+  <th class="head">Username</th>
+  <th class="head">Action</th></tr>
+    {% for display in result %}
+  <tr>
+      <td class="data">{{display.Question}}</td>
+      <td class="data">{{display.cho1}}</td>
+      <td class="data">{{display.cho2}}</td>
+      <td class="data">{{display.cho3}}</td>
+      <td class="data">{{display.cho4}}</td>
+      <td class="data">{{display.username}}</td>
+      <td class="data">delete</td></tr>
+    {% endfor %}
+</table>
+    </div>
+<br><br><br><br><br><br><br>
+<br><br><br><br>
+{% endblock %}
+
+</body>
+</html>

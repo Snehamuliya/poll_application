@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="boot/css/bootstrap.min.css">
+  <script src="boot/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+      {% load static %}
+      <link rel ="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+      <link rel ="stylesheet" href="{% static 'mystyle.css'%}">
+      <script src="{% static 'jscript.js'%}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+
+
+
+
+         {% if s_user %}
+
+      <div class="dropdown">
+         <span> My Account </span>
+           <div class="dropdown-content">
+              <p><a href="/profile">My Profile</a></p>
+              <p><a href="/polls">Create polls</a></p>
+              <p><a href="/activities">My activitys</a></p>
+           </div>
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link " href="/logout">logout</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#">{{s_user}}</a>
+      </li>
+
+
+      {% else %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+
+
+  {% endif %}
+        <li class="nav-item">
+        <a class="nav-link" href="/u_feedback">feedback</a>
+      </li>
+
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+
+<!--
+<div class="container">
+    <h3>This should be blue</h3>
+
+</div>
+    <h3 class="class1">
+        nbvbnv
+    </h3>
+-->
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

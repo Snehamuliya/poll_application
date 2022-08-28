@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+<div class="container">
+    <center><h1>Users poll</h1></center>
+<div class="row">
+    <div class = "col-md-10">
+        <center>{{msg}}</center>
+<table class="table table-bordered">
+
+                {% for display in result %}
+        <form method="post">
+           {% csrf_token %}
+
+            <tr><td colspan="4">"{{display.Question}}" </td>
+                <td><input type="text" name="poll_id" value="{{display.id}}" hidden></td></tr>
+              <tr><td><input type="radio" id="aa" name="aa" value="{{display.cho1}}"><label for="aa">1) {{display.cho1}}</label></td>
+              <td><input type="radio" id="bb" name="aa" value="{{display.cho2}}"><label for="bb">2) {{display.cho2}}</label></td>
+              <td><input type="radio" id="cc" name="aa" value="{{display.cho3}}"><label for="cc">3) {{display.cho3}}</label></td>
+              <td><input type="radio" id="dd" name="aa" value="{{display.cho4}}"><label for="dd">4) {{display.cho4}}</label></td>
+
+             <td><input type="submit"></td></tr>
+
+
+        </form>
+    {% endfor %}
+</table>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
+</body>
+</html>
